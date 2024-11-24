@@ -42,14 +42,14 @@ public:
   double perimetr(double lena_, double lenb_, double lenc_);
   double square(double lena_, double lenb_, double lenc_, double perimetr_);
 };
-std::istream& operator >> (std::istream& in, Triangle& Triangle)
+std::istream& operator >> (std::istream& in, Triangle& e)
 {
-  in >> Triangle.a_.x >> Triangle.a_.y >> Triangle.b_.x >> Triangle.b_.y >> Triangle.c_.x >> Triangle.c_.y;
-  Triangle.lena_ = Triangle::side_length(Triangle.b_, Triangle.c_);
-  Triangle.lenb_ = Triangle::side_length(Triangle.a_, Triangle.c_);
-  Triangle.lenc_ = Triangle::side_length(Triangle.a_, Triangle.b_);
-  Triangle.perimetr_ = Triangle::perimetr(Triangle.lena_, Triangle.lenb_, Triangle.lenc_);
-  Triangle.square_ = Triangle::square(Triangle.lena_, Triangle.lenb_, Triangle.lenc_, Triangle.perimetr_);
+  in >> e.a_.x >> e.a_.y >> e.b_.x >> e.b_.y >> e.c_.x >> e.c_.y;
+  e.lena_ = Triangle::side_length(e.b_, e.c_);
+  e.lenb_ = Triangle::side_length(e.a_, e.c_);
+  e.lenc_ = Triangle::side_length(e.a_, e.b_);
+  e.perimetr_ = Triangle::perimetr(e.lena_, e.lenb_, e.lenc_);
+  e.square_ = Triangle::square(e.lena_, e.lenb_, e.lenc_, e.perimetr_);
   return in;
 }
 bool operator == (Triangle& a, Triangle& b)
