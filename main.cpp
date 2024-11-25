@@ -5,17 +5,17 @@
 int main()
 {
   Triangle triangle1();
-  std::cin >> triangle1;
-  brevnov::sort_ascending_order(triangle1);
-  if (brevnov::checkTable(triangle1.lena_, triangle1.lenb_, triangle1.lenc_))
+  std::cin >> triangle1;  
+  triangle1.sort_ascending_order(triangle1);
+  if (triangle1.checkTable())
   {
     std::cerr << "ERROR: it is impossible to construct a triangle from given points\n";
     return 1;
   }
   Triangle triangle2();
   std::cin >> triangle2;
-  brevnov::sort_ascending_order(triangle2);
-  if (brevnov::checkTable(triangle2.lena_, triangle2.lenb_, triangle2.lenc_))
+  triangle1.sort_ascending_order(triangle1);
+  if (triangle1.checkTable())
   {
     std::cerr << "ERROR: it is impossible to construct a triangle from given points\n";
     return 1;
