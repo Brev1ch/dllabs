@@ -18,7 +18,7 @@ public:
   double find_area(double lena_, double lenb_, double lenc_, double perimetr_);
   void sort_ascending_order();
   bool checkTable();
-  void operator >> (std::istream& in);
+  std::istream& operator >> (std::istream& in);
   bool operator == (Triangle& a);
   void operator += (double k);
   bool operator < (Triangle& a);

@@ -36,7 +36,7 @@ void Triangle::sort_ascending_order()
   lenc_ = c;
 }
 
-void Triangle::operator >> (std::istream& in)
+std::istream& Triangle::operator >> (std::istream& in)
 {
   in >> a_.x >> a_.y >> b_.x >> b_.y >> c_.x >> c_.y;
   lena_ = side_length(b_, c_);
@@ -44,6 +44,7 @@ void Triangle::operator >> (std::istream& in)
   lenc_ = side_length(a_, b_);
   perimetr_ = find_perimetr(lena_, lenb_, lenc_);
   area_ = find_area(lena_, lenb_, lenc_, perimetr_);
+  return in;
 }
 bool Triangle::operator == (Triangle& a)
 {
