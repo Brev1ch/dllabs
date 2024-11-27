@@ -1,4 +1,5 @@
 #include "triangle.hpp"
+#include <iostream>
 #include <cmath>
 
 double Triangle::side_length(point a, point b)
@@ -35,7 +36,7 @@ void Triangle::sort_ascending_order()
   lenc_ = c;
 }
 
-std::istream& Triangle::operator >> (std::istream& in)
+void Triangle::operator >> (std::istream& in)
 {
   in >> a_.x >> a_.y >> b_.x >> b_.y >> c_.x >> c_.y;
   lena_ = side_length(b_, c_);
@@ -43,7 +44,6 @@ std::istream& Triangle::operator >> (std::istream& in)
   lenc_ = side_length(a_, b_);
   perimetr_ = find_perimetr(lena_, lenb_, lenc_);
   area_ = find_area(lena_, lenb_, lenc_, perimetr_);
-  return in;
 }
 bool Triangle::operator == (Triangle& a)
 {
@@ -61,4 +61,9 @@ void Triangle::operator += (double k)
   a_.y += k;
   b_.y += k;
   c_.y += k;
+}
+
+void Triangle::move_output()
+{
+  std::cout << "Triangle1 moved, new vertices=(" << a_.x << "," << a_.y << ") (" << b_.x << "," << b_.y << ") (" << c_.x << "," << c_.y << ")\n";
 }

@@ -39,6 +39,6 @@ int main()
   double k = 0.0;
   std::cin >> k;
   triangle1 += k;
-  std::cout << "Triangle1 moved, new vertices=(" << triangle1.a_.x << "," << triangleP1.a_.y << ") (" << triangle1.b_.x << "," << triangle1.b_.y << ") (" << triangle1.c_.x << "," << triangle1.c_.y << ")\n";
+  triangle1.move_output();
   return 0;
 }
