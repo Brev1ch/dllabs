@@ -1,6 +1,7 @@
 #include "triangle.hpp"
 #include <iostream>
 #include <cmath>
+#include <algorithm>
 
 double Triangle::side_length(point a, point b)
 {
@@ -28,28 +29,21 @@ bool Triangle::checkTable()
 void Triangle::sort_ascending_order()
 {
   double a = 0.0, b = 0.0, c = 0.0;
-  a = std::max(lena_, lenb_, lenc_);
-  c = std::max(lena_, lenb_, lenc_);
-  b = (lena_, lenb_, lenc_) - a - c;
+  a = std::max(lena_, lenb_);
+  a = std::max(a, lenc_);
+  c = std::min(lena_, lenb_);
+  c = std::min(c, lenc_);
+  b = (lena_ + lenb_ + lenc_) - a - c;
   lena_ = a;
   lenb_ = b;
   lenc_ = c;
 }
 
-std::istream& Triangle::operator >> (std::istream& in)
-{
-  in >> a_.x >> a_.y >> b_.x >> b_.y >> c_.x >> c_.y;
-  lena_ = side_length(b_, c_);
-  lenb_ = side_length(a_, c_);
-  lenc_ = side_length(a_, b_);
-  perimetr_ = find_perimetr(lena_, lenb_, lenc_);
-  area_ = find_area(lena_, lenb_, lenc_, perimetr_);
-  return in;
-}
 bool Triangle::operator == (Triangle& a)
 {
   return (a.lena_ == lena_) && (a.lenb_ == lenb_) && (a.lenc_ == lenc_);
 }
+
 bool Triangle::operator < (Triangle& b)
 {
   return area_ < b.area_;

@@ -9,8 +9,6 @@ struct point
 class Triangle
 {
 public:
-    Triangle() :
-    a_({0.0, 0.0}), b_({0.0, 0.0}), c_({0.0, 0.0}), lena_(0), lenb_(0), lenc_(0), perimetr_(0), area_(0) {}
   Triangle(const point& a = {}, const point& b = {}, const point& c = {}) :
     a_(a), b_(b), c_(c), lena_(side_length(a, b)), lenb_(side_length(b, c)), lenc_(side_length(a, c)), perimetr_(find_perimetr(lena_, lenb_, lenc_)), area_(find_area(lena_, lenb_, lenc_, perimetr_)) {}
   double side_length(point a, point b);
@@ -18,7 +16,7 @@ public:
   double find_area(double lena_, double lenb_, double lenc_, double perimetr_);
   void sort_ascending_order();
   bool checkTable();
-  std::istream& operator >> (std::istream& in);
+  friend std::istream& operator >> (std::istream& in, Triangle& tra);
   bool operator == (Triangle& a);
   void operator += (double k);
   bool operator < (Triangle& a);
